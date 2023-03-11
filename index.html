@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Works Sales Trend Analysis</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003399;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="date"], select {
+    font-size: 16px;
+    padding: 6px;
+    width: 200px;
+}
+    </style>
+</head>
+
+<body>
+    <h1>Adventure Works Sales Trend Analysis</h1>
+    <form action="action.php" method="post">
+        <label for="startDate">Start Date: </label>
+        <input type="date" name="startDate" id="startDate" />
+        <label for="endDate">End Date: </label>
+        <input type="date" name="endDate" id="endDate" />
+        <label for="breakupType">Breakup Type: </label>
+        <select name="breakupType" id="breakupType">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+        </select>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>
+</body>
+<script type="text/javascript">
+    // Ensure start date is not after end date
+    document.getElementById("startDate").onchange = function(){
+        if (this.value > document.getElementById("endDate").value){
+            alert("Start date cannot be after end date!");
+            this.value = "";
+        }
+    }
+    
+    // Ensure end date is not before start date
+    document.getElementById("endDate").onchange = function(){
+        if (this.value < document.getElementById("startDate").value){
+            alert("End date cannot be before start date!");
+            this.value = "";
+        }
+    }
+</script>
+
+
+
+</html>
